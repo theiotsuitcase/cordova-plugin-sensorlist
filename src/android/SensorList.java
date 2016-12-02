@@ -3,10 +3,9 @@ package com.tis.plugin;
 import org.apache.cordova.*;
 import org.json.JSONArray;
 import org.json.JSONException;
-
+import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
-
 import android.app.ListActivity;
 import android.content.Context;
 import android.hardware.Sensor;
@@ -21,17 +20,26 @@ public class SensorList extends CordovaPlugin {
 
         if (action.equals("fetch")) {
             try{
-            SensorManager sensorManager = (SensorManager)getSystemService(Context.SENSOR_SERVICE);
-            List<Sensor> listSensor = sensorManager.getSensorList(Sensor.TYPE_ALL);
-            List<String> listSensorType = new ArrayList<String>();
-            for(int i=0; i<listSensor.size(); i++){
-                listSensorType.add(listSensor.get(i).getName());
+            SensorManager smm;
+            List<Sensor> sensorList;
+            JSONArray jsonArray = new JSONArray();
+
+            smm = (SensorManager)cordova.getActivity().getSystemService(Context.SENSOR_SERVICE);
+            sensorList = smm.getSensorList(Sensor.TYPE_ALL);
+
+            for (int i = 0; i < sensorList.size(); i++)
+            {
+              JSONObject jsonObj = new JSONObject();
+              jsonObj.put("name", sensorList.get(i).getName());
+
+              jsonArray.put(jsonObj);
             }
 
-            callbackContext.success(listSensorType);
+
+            callbackContext.success(jsonArray);
         }
-        catch(exception ex){
-            callbackContext.error(ex);
+        catch(Exception ex){
+            callbackContext.error("ex");
         }
 
             return true;

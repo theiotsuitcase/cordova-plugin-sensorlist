@@ -11,7 +11,7 @@
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="SensorList">
-                <param name="android-package" value="com.tis.plugin.sensorlist" />
+                <param name="android-package" value="com.tis.plugin" />
             </feature>
         </config-file>
         <source-file src="src/android/SensorList.java" target-dir="src/com/tis/plugin/" />
