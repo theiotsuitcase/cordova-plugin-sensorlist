@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0" id="com.tis.sensorlist" version="0.1.0">
+    <name>Sensor List</name>
+    <engines>
+        <engine name="cordova" version=">=3.4.0" />
+    </engines>
+    <asset src="www/sensorlist.js" target="js/sensorlist.js" />
+    <js-module src="www/sensorlist.js" name="sensorlist">
+        <clobbers target="sensorlist" />
+    </js-module>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="SensorList">
+                <param name="android-package" value="com.tis.plugin.sensorlist" />
+            </feature>
+        </config-file>
+        <source-file src="src/android/SensorList.java" target-dir="src/com/tis/plugin/" />
+    </platform>
+</plugin>
