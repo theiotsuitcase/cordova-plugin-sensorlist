@@ -2,7 +2,7 @@
 <plugin id="com.tis.sensorlist" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     <name>SensorList</name>
     <description>Get the list of all sensors on a Device</description>
-    <js-module name="SensorList" src="www/SensorList.js">
+    <js-module name="SensorList" src="www/sensorlist.js">
         <clobbers target="cordova.plugins.SensorList" />
     </js-module>
     <platform name="android">
