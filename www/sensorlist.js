@@ -1,7 +1,9 @@
-/*global cordova, module*/
+var exec = require('cordova/exec');
 
-module.exports = {
-    fetch: function (successCallback, errorCallback) {
-        cordova.exec(successCallback, errorCallback, "SensorList", "fetch", []);
-    }
+/**
+ * returns success , error String arguments
+ * 
+ */
+exports.getAvailableSensors = function(success, error) {
+    exec(success, error, "SensorList", "getAvailableSensors");
 };
