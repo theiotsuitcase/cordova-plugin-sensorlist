@@ -45,6 +45,8 @@ public class SensorList extends CordovaPlugin {
               JSONObject jsonObj = new JSONObject();
               //finding each sensor name and listing with name.
               jsonObj.put("name", sensorList.get(i).getName());
+              jsonObj.put("type", sensorList.get(i).getType());
+              jsonObj.put("vendor", sensorList.get(i).getVendor());
 
               jsonArray.put(jsonObj);
             }

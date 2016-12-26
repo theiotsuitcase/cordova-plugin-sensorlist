@@ -11,12 +11,12 @@ $ ionic start mySensorListApp blank
 
 #### Add Android platform
 ```bash
+$ cd mySensorListApp
 $ ionic platform add android
  ```
 
 ### Install the plugin
 ```bash
-$ cd mySensorListApp
 $ ionic plugin add https://github.com/theiotsuitcase/cordova-plugin-sensorlist.git
 ```
 
