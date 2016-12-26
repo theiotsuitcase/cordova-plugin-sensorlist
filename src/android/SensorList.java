@@ -44,10 +44,19 @@ public class SensorList extends CordovaPlugin {
             {
               JSONObject jsonObj = new JSONObject();
               //finding each sensor name and listing with name.
+              jsonObj.put("id", sensorList.get(i).getId());
               jsonObj.put("name", sensorList.get(i).getName());
               jsonObj.put("type", sensorList.get(i).getType());
               jsonObj.put("vendor", sensorList.get(i).getVendor());
-              jsonObj.put("all", sensorList.get(i).toString());
+              jsonObj.put("maxDelay", sensorList.get(i).getMaxDelay());
+              jsonObj.put("maxRange", sensorList.get(i).getMaximumRange());
+              jsonObj.put("minDelay", sensorList.get(i).getMinDelay());
+              jsonObj.put("power", sensorList.get(i).getPower());
+              jsonObj.put("resolution", sensorList.get(i).getResolution());
+              jsonObj.put("version", sensorList.get(i).getVersion());
+              jsonObj.put("isWakeUpSensor", sensorList.get(i).isWakeUpSensor());
+              jsonObj.put("stringType", sensorList.get(i).getStringType());
+              
 
               jsonArray.put(jsonObj);
             }
